@@ -1,1 +1,4 @@
-Hier befinden sich meine Konfigurationen
+* Übersicht
+  Hier befinden sich meine Konfigurationen, welche mit GNU Stow einfach auf andere Systeme übertragen werden können.
+** Emacs
+   Aktuell nutze ich Emacs als Texteditor dessen Konfiguration und entahltene Pakete unter [[./.emacs.d][dem Emacs-Verzeichnis]] befinden.
