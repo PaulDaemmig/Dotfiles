@@ -1,0 +1,5 @@
+sudo pacman -S base-devel cmake 
+yay -S ccls
+exit
+mv HalloWelt.c Kapitel_3/
+exit

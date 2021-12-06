@@ -1,0 +1,3 @@
+[submodule ".digestif"]
+	path = .digestif
+	url = https://github.com/astoff/digestif

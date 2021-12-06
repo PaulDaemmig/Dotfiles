@@ -46,6 +46,7 @@
        :config (rainbow-delimiters-mode))
 
     (use-package magit)
+    (use-package projectile)
      ;;----------------------------------------------
      (use-package doom-themes
        :init (load-theme 'doom-palenight t))
@@ -53,4 +54,11 @@
      (use-package all-the-icons)
      (use-package doom-modeline
        :init (doom-modeline-mode 1))
+
+     ;;---------------------------------------------
+     (use-package eglot)
+     (use-package company
+       :config (global-company-mode t))
+     (use-package yasnippet
+       :config (yas-global-mode 1))
   #+end_src
