@@ -3,3 +3,14 @@ yay -S ccls
 exit
 mv HalloWelt.c Kapitel_3/
 exit
+chmod +x publish.sh 
+./publish.sh 
+./publish.sh 
+./publish.sh 
+./publish.sh 
+./publish.sh 
+./publish.sh 
+sudo pacman -S gcc
+gcc rechteck.c -o rechteck
+./rechteck
+exit
