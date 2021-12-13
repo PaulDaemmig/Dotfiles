@@ -49,6 +49,7 @@
 (use-package flycheck
   :config (global-flycheck-mode t))
 (use-package lsp-ivy)
+(use-package lsp-treemacs)
 
 (use-package company
   :config (global-company-mode t))
@@ -58,6 +59,12 @@
 
 (use-package magit)
 (use-package projectile)
+
+(global-set-key (kbd "C-c l") 'org-store-link)
+(global-set-key (kbd "C-c a") 'org-agenda)
+(global-set-key (kbd "C-c c") 'org-capture)
+
+(setq org-startup-folded t)
 
 (with-eval-after-load 'ox-latex
 (add-to-list 'org-latex-classes

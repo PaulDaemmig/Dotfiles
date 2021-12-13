@@ -14,3 +14,6 @@ sudo pacman -S gcc
 gcc rechteck.c -o rechteck
 ./rechteck
 exit
+git config --global user.email "Paul-daemmig@gmx.net"
+git config --global user.name "Paul Daemmig"
+exit

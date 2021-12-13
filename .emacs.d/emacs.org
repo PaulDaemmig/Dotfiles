@@ -75,10 +75,7 @@
   (use-package flycheck
     :config (global-flycheck-mode t))
   (use-package lsp-ivy)
-#+end_src
-** Eglot
-#+begin_src emacs-lisp ;;:tangle init.el :mkdirp
- (use-package eglot)
+  (use-package lsp-treemacs)
 #+end_src
 ** Company
 #+begin_src emacs-lisp :tangle init.el :mkdirp
@@ -96,6 +93,16 @@
   (use-package projectile)
 #+end_src
 * ORG-Mode
+** Tasten
+#+begin_src emacs-lisp :tangle init.el :mkdirp
+(global-set-key (kbd "C-c l") 'org-store-link)
+(global-set-key (kbd "C-c a") 'org-agenda)
+(global-set-key (kbd "C-c c") 'org-capture)
+#+end_src
+** Variablen
+#+begin_src emacs-lisp :tangle init.el :mkdirp
+    (setq org-startup-folded t)
+#+end_src
 ** Export
 *** Latex-"org-plain-text"
 #+begin_src emacs-lisp :tangle init.el :mkdirp
