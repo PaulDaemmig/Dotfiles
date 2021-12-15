@@ -103,8 +103,9 @@
 #+begin_src emacs-lisp :tangle init.el :mkdirp
     (setq org-startup-folded t)
 #+end_src
-** Export
-*** Latex-"org-plain-text"
+** Latex-Export
+*** Klasse: "org-plain-latex"
+Diese Latex-Klasse enthält standardmäßig keine Packages oder Header und kann somit vollständif per Setupfile konfiguriert werden.
 #+begin_src emacs-lisp :tangle init.el :mkdirp
   (with-eval-after-load 'ox-latex
   (add-to-list 'org-latex-classes
@@ -119,3 +120,7 @@
 		 ("\\paragraph{%s}" . "\\paragraph*{%s}")
 		 ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
 #+end_src
+*** Ob-napkin: Diagramme erstellen
+#+begin_src emacs-lisp :tangle init.el :mkdirp
+(use-package ob-napkin)
+#+end_Src
