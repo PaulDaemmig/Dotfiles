@@ -1,19 +1,23 @@
-sudo pacman -S base-devel cmake 
-yay -S ccls
+gcc complex.c -o complex
+./complex 
+./complex 
+gcc complex.c -o complex
+./complex 
 exit
-mv HalloWelt.c Kapitel_3/
-exit
-chmod +x publish.sh 
+gcc main.c -o main
+./main 
+gcc main.c -o main
+./main 
+gcc main.c -o main
+./main 
+gcc main.c -o main
+./main 
 ./publish.sh 
 ./publish.sh 
 ./publish.sh 
 ./publish.sh 
 ./publish.sh 
+cd ..
 ./publish.sh 
-sudo pacman -S gcc
-gcc rechteck.c -o rechteck
-./rechteck
-exit
-git config --global user.email "Paul-daemmig@gmx.net"
-git config --global user.name "Paul Daemmig"
-exit
+./publish.sh 
+./publish.sh 

@@ -26,7 +26,7 @@
 		shell-mode-hook
 		treemacs-mode-hook
 		eshell-mode-hook))
-  (add-hook mode (lambda () (dosplay-line-numbers-mode 0))))
+  (add-hook mode (lambda () (display-line-numbers-mode 0))))
 
 (use-package all-the-icons)
 (use-package doom-modeline
@@ -78,3 +78,50 @@
 	       ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
 	       ("\\paragraph{%s}" . "\\paragraph*{%s}")
 	       ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
+
+(with-eval-after-load 'ox-latex
+(add-to-list 'org-latex-classes
+	     '("org-hp-doc"
+	       "\\documentclass[12pt, a4paper, oneside, onecolumn]{article}
+                \\usepackage{amssymb}                                                                               
+                \\usepackage[ngerman]{babel}
+                \\usepackage{hyperref}
+                \\usepackage{graphicx}
+                \\usepackage[dvipsnames]{xcolor}
+                \\definecolor{HP-blue}{RGB}{37,150,190}
+                \\usepackage{longtable}
+                \\usepackage[paper=a4paper, left=40mm, right=20mm, top=20mm, bottom=20mm]{geometry}
+                \\makeatletter
+                \\def\\@maketitle{%
+		\\newpage
+		\\thispagestyle{empty}
+		\\Huge
+		\\color{HP-blue}
+                \\centering
+		\\textbf{Hegewald \\& Peschke Mess- und Prüftechnik GmbH} \\\\ \\\\
+		\\vspace{5cm}
+		\\Large
+		\\color{black}
+		\\@title \\\\ \\\\
+		\\vspace{3cm}
+		\\normalsize
+		Autor: \\@author \\\\ \\\\
+		Datum: \\today \\\\ \\\\
+		\\vspace{3cm}
+		\\includegraphics{~/Temp/willy.jpg}
+		\\newpage }
+		\\makeatother
+	   [NO-DEFAULT-PACKAGES]
+	   [PACKAGES]
+	   [EXTRA]"
+	       ("\\section{%s}" . "\\section*{%s}")
+	       ("\\subsection{%s}" . "\\subsection*{%s}")
+	       ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+	       ("\\paragraph{%s}" . "\\paragraph*{%s}")
+	       ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
+
+(use-package ob-napkin)
+
+(use-package org-roam
+  :config (setq org-roam-directory (file-truename "~/org"))
+	  (org-roam-db-autosync-mode t))

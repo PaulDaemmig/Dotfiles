@@ -1,7 +1,5 @@
 #+title: Konfiguration für den StumpWm
 #+author: Paul Dämmig
-
-
 * Basic
 
 #+begin_src lisp :tangle config
@@ -13,34 +11,29 @@
   (run-shell-command "xmodmap -e \'keycode 133 = F20\'" t)
   (set-prefix-key (kbd "F20"))
   (run-shell-command "feh --bg-scale ~/Bilder/desktop.jpg")
-
+  (run-shell-command "xrandr --output HDMI-0 --right-of DVI-1 --output DisplayPort-0 --right-of HDMI-0")
 #+end_src
 * Fensterverwaltung
-
 #+begin_src lisp :tangle config
   (defvar *ce/workspaces* (list "emacs" "www" "Term"))
   (stumpwm:grename (nth 0 *ce/workspaces*))
   (dolist (workspace (cdr *ce/workspaces*))
     (stumpwm:gnewbg workspace))
 
-  (defvar *move-to-keybinds* (list "!" "\"" "§" "$" "%" "&" "/" "(" ")"))
+  (defvar *move-to-keybinds* (list "!" "@" "#" "$" "%" "^" "&" "*" "("))
   (dotimes (y (length *ce/workspaces*))
     (let ((workspace (write-to-string (+ y 1))))
       (define-key *root-map* (kbd workspace) (concat "gselect " workspace))
       (define-key *root-map* (kbd (nth y *move-to-keybinds*)) (concat "gmove-and-follow " workspace))))
 #+end_src
 * Gaps
-
 #+begin_src lisp :tangle config
-
   (load-module "swm-gaps")
   (setf swm-gaps:*inner-gaps-size* 5
         swm-gaps:*outer-gaps-size* 8
         swm-gaps:*head-gaps-size* 0)
-
 #+end_src
 * Shortcuts
-
 #+begin_src lisp :tangle config
 (define-key *root-map* (kbd "Q") "quit")
 (define-key *root-map* (kbd "C-r") "restart-hard")
@@ -57,11 +50,9 @@
 ;;Gaps
 (define-key *root-map* (kbd "g") "toggle-gaps")
 ;;Terminal
-(define-key *root-map* (kbd "RET") "exec kitty")
+(define-key *root-map* (kbd "RET") "exec alacritty")
 ;;Browser
-(define-key *root-map* (kbd "w") "exec qutebrowser")
-;;Pokemon Smaragd
-(define-key *root-map* (kbd "p") "exec visualboyadvance-m /home/paul/gba/smaragd.gba")
+(define-key *root-map* (kbd "w") "exec nyxt")
 ;;Resize Frames
 (setf *resize-increment* 25)
 (define-key *root-map* (kbd "R") "iresize")
@@ -71,23 +62,20 @@
 (define-key *top-map* (kbd "M-j") "resize-direction Down")
 #+end_src
 * Modeline
-
 #+begin_src lisp :tangle config
-(setf *window-format* "%m%n%s%c")
-(setf *screen-mode-line-format* (list "[^B%n^b] %W^>%d"))
+    (setf *window-format* "%m%n%s%c")
+    (setf *screen-mode-line-format* (list "[^B%n^b] %W^>%d"))
+    (setf *screen-mode-line-screen* "HDMI-0")
 
-(setf *time-modeline-string* "%a %b %e %k:%M")
+    (setf *time-modeline-string* "%a %b %e %k:%M")
 
-(setf *mode-line-timeout* 2)
+    (setf *mode-line-timeout* 2)
 
-(enable-mode-line (current-screen) (current-head) t)
-
+    (enable-mode-line (current-screen) (current-head) t)
 #+end_src
 
 * Hilfefenster
-
 #+begin_src lisp :tangle config
-
   (setf *message-window-gravity* :center
         ,*input-window-gravity* :center
         ,*window-border-style* :thin
@@ -98,5 +86,4 @@
         stumpwm::*float-window-border* 4
         stumpwm::*float-window-title-height* 20
         ,*mouse-focus-policy* :click)
-
 #+end_src

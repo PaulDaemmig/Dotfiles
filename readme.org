@@ -1,4 +1,12 @@
 * Übersicht
   Hier befinden sich meine Konfigurationen, welche mit GNU Stow einfach auf andere Systeme übertragen werden können.
+* LISP
 ** Emacs
    Aktuell nutze ich Emacs als Texteditor dessen Konfiguration und entahltene Pakete unter [[./.emacs.d][dem Emacs-Verzeichnis]] befinden.
+   Fuer die Konfiguration wird ein Dialekt von Lisp verwendet(Emacs-Lisp).
+** StumpWM
+   StumpWM ist ein Window-Manager, welcher vollstaenig in Lisp geschrieben wurde.
+   Daher kann er leicht erweitert werden und mit Emacs genutzt werden.
+** Nyxt
+   Nyxt ist ein Browser, welcher in Lisp geschrieben wurde und konfigurierbar ist.
+   Bemerkenswert ist die Steuerung ueber die Tastatur mit vim/emacs Tastenkombinationen.
