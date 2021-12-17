@@ -125,3 +125,11 @@
 (use-package org-roam
   :config (setq org-roam-directory (file-truename "~/org"))
 	  (org-roam-db-autosync-mode t))
+
+(use-package ledger-mode
+    :mode ("\\.dat\\'"
+           "\\.ledger\\'")
+    :custom (ledger-clear-whole-transactions t))
+       
+  (use-package flycheck-ledger
+    :after ledger-mode)

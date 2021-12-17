@@ -175,3 +175,14 @@ Diese Latex-Klasse enthält standardmäßig keine Packages oder Header und kann 
 	:config (setq org-roam-directory (file-truename "~/org"))
 		(org-roam-db-autosync-mode t))
 #+end_src
+* Finanzen: Ledger
+Ledger ist ein Tool, um Finanzen über Textdokumente zu verwalten.
+#+begin_src emacs-lisp :tangle init.el :mkdirp
+(use-package ledger-mode
+    :mode ("\\.dat\\'"
+           "\\.ledger\\'")
+    :custom (ledger-clear-whole-transactions t))
+       
+  (use-package flycheck-ledger
+    :after ledger-mode)
+#+end_src
