@@ -6,8 +6,9 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "vterm" "vterm.el" (0 0 0 0))
-;;; Generated autoloads from vterm.el
+;;;### (autoloads nil "vterm" "../../../../.emacs.d/elpa/vterm-20211209.58/vterm.el"
+;;;;;;  "362851689dacbb833f15e34e2bce03d3")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/vterm-20211209.58/vterm.el
 
 (autoload 'vterm-module-compile "vterm" "\
 Compile vterm-module." t nil)
@@ -66,12 +67,21 @@ The buffer name used for Vterm sessions is determined by the
 value of `vterm-buffer-name'.
 
 \(fn &optional ARG)" t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "vterm" "../../../../.emacs.d/elpa/vterm-20211209.58/vterm.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../.emacs.d/elpa/vterm-20211209.58/vterm.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "vterm" '("vterm-")))
 
 ;;;***
+
+;;;***
 
-;;;### (autoloads nil nil ("vterm-pkg.el") (0 0 0 0))
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/vterm-20211209.58/vterm-autoloads.el"
+;;;;;;  "../../../../.emacs.d/elpa/vterm-20211209.58/vterm-pkg.el"
+;;;;;;  "../../../../.emacs.d/elpa/vterm-20211209.58/vterm.el") (0
+;;;;;;  0 0 0))
 
 ;;;***
 

@@ -6,8 +6,9 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "posframe" "posframe.el" (0 0 0 0))
-;;; Generated autoloads from posframe.el
+;;;### (autoloads nil "posframe" "../../../../.emacs.d/elpa/posframe-20211126.944/posframe.el"
+;;;;;;  "70bbd2d2048cf6a6302349f41fd9abb4")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/posframe-20211126.944/posframe.el
 
 (autoload 'posframe-workable-p "posframe" "\
 Test posframe workable status." nil nil)
@@ -242,23 +243,40 @@ Hide all posframe frames." t nil)
 
 (autoload 'posframe-delete-all "posframe" "\
 Delete all posframe frames and buffers." t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "posframe" "../../../../.emacs.d/elpa/posframe-20211126.944/posframe.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../.emacs.d/elpa/posframe-20211126.944/posframe.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "posframe" '("posframe-")))
 
 ;;;***
+
+;;;***
 
-;;;### (autoloads nil "posframe-benchmark" "posframe-benchmark.el"
-;;;;;;  (0 0 0 0))
-;;; Generated autoloads from posframe-benchmark.el
+;;;### (autoloads nil "posframe-benchmark" "../../../../.emacs.d/elpa/posframe-20211126.944/posframe-benchmark.el"
+;;;;;;  "fa7458b3ed3d51902987d695f07dd674")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/posframe-20211126.944/posframe-benchmark.el
 
 (autoload 'posframe-benchmark "posframe-benchmark" "\
 Benchmark tool for posframe." t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "posframe-benchmark"
+;;;;;;  "../../../../.emacs.d/elpa/posframe-20211126.944/posframe-benchmark.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../.emacs.d/elpa/posframe-20211126.944/posframe-benchmark.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "posframe-benchmark" '("posframe-benchmark-alist")))
 
 ;;;***
+
+;;;***
 
-;;;### (autoloads nil nil ("posframe-pkg.el") (0 0 0 0))
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/posframe-20211126.944/posframe-autoloads.el"
+;;;;;;  "../../../../.emacs.d/elpa/posframe-20211126.944/posframe-benchmark.el"
+;;;;;;  "../../../../.emacs.d/elpa/posframe-20211126.944/posframe-pkg.el"
+;;;;;;  "../../../../.emacs.d/elpa/posframe-20211126.944/posframe.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

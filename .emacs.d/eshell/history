@@ -1,23 +1,2 @@
-gcc complex.c -o complex
-./complex 
-./complex 
-gcc complex.c -o complex
-./complex 
-exit
-gcc main.c -o main
-./main 
-gcc main.c -o main
-./main 
-gcc main.c -o main
-./main 
-gcc main.c -o main
-./main 
-./publish.sh 
-./publish.sh 
-./publish.sh 
-./publish.sh 
-./publish.sh 
-cd ..
-./publish.sh 
-./publish.sh 
-./publish.sh 
+gcc scanf.c -o scanf
+./scanf 

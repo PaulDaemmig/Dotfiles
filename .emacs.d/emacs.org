@@ -8,18 +8,21 @@
 #+end_src
 * Paket-Initialisierung
 #+begin_src emacs-lisp :tangle init.el :mkdirp yes
-	 (require 'package)
+    (require 'package)
 
-	 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
-				  ("org" . "https://orgmode.org/elpa/")
-				  ("elpa" . "https://elpa.gnu.org/packages/")))
+    (setq package-archives '(("melpa" . "https://melpa.org/packages/")
+			     ("org" . "https://orgmode.org/elpa/")
+			     ("elpa" . "https://elpa.gnu.org/packages/")))
 
-	 (package-initialize)
-	 (unless package-archive-contents
-	   (package-refresh-contents))
+    (package-initialize)
+    (unless package-archive-contents
+      (package-refresh-contents))
 
-	 (require 'use-package)
-	 (setq use-package-always-ensure t)
+  (unless (package-installed-p 'use-package)
+    (package-install 'use-package))
+
+    (require 'use-package)
+    (setq use-package-always-ensure t)
 #+end_src
 * Konfiguration der Oberflaeche
 ** Basics
@@ -41,6 +44,12 @@
 			 eshell-mode-hook))
 	   (add-hook mode (lambda () (display-line-numbers-mode 0))))
 #+end_src
+** Font
+#+begin_src emacs-lisp :tangle init.el :mkdirp yes
+  (set-face-attribute 'default nil :font "NotoSans Nerd Font" :height 120)
+  (set-face-attribute 'fixed-pitch nil :font "NotoSans Nerd Font" :height 120)
+  (set-face-attribute 'variable-pitch nil :font "Hack Nerd Font" :height 140)
+#+end_src
 ** Doom-Modeline
 #+begin_src emacs-lisp :tangle init.el :mkdirp yes
 		 (use-package all-the-icons)
@@ -50,7 +59,12 @@
 ** Doom-Theme
 #+begin_src emacs-lisp :tangle init.el :mkdirp yes
 		 (use-package doom-themes
-		   :init (load-theme 'doom-palenight t))
+		   :init (load-theme 'doom-moonlight t))
+#+end_src
+** Dashboard
+#+begin_src emacs-lisp :tangle init.el :mkdirp yes
+  (use-package dashboard
+    :config (dashboard-setup-startup-hook))
 #+end_src
 * Evil: Vim-Belegung in Emacs
 #+begin_src emacs-lisp :tangle init.el :mkdirp yes
@@ -82,10 +96,15 @@
  (use-package company
    :config (global-company-mode t))
 #+end_Src
+** YASnippet
+#+begin_src emacs-lisp :tangle init.el :mkdirp
+    (use-package yasnippet
+      :config (setq yas-snippet-dirs '("~/.emacs.d/snippets"))
+              (yas-global-mode 1))
+#+end_src
 ** Rainbow-Delimeters
 #+begin_src emacs-lisp :tangle init.el :mkdirp
-  (use-package rainbow-delimiters
-   :config (rainbow-delimiters-mode t))
+  (use-package rainbow-delimiters)
 #+end_src
 * Projektverwaltung
 #+begin_src emacs-lisp :tangle init.el :mkdirp
@@ -93,6 +112,11 @@
   (use-package projectile)
 #+end_src
 * ORG-Mode
+#+begin_src emacs-lisp :tangle init.el :mkdirp
+  (add-hook 'org-mode-hook (lambda () (org-indent-mode 1)))
+  (add-hook 'org-mode-hook (lambda () (variable-pitch-mode 1)))
+  (add-hook 'org-mode-hook (lambda () (visual-line-mode 1)))
+#+end_src
 ** Tasten
 #+begin_src emacs-lisp :tangle init.el :mkdirp
 (global-set-key (kbd "C-c l") 'org-store-link)
@@ -103,6 +127,22 @@
 #+begin_src emacs-lisp :tangle init.el :mkdirp
     (setq org-startup-folded t)
 #+end_src
+** Optik
+*** Superstar-Mode
+#+begin_src emacs-lisp :tangle init.el :mkdirp
+(use-package org-superstar)
+  (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
+#+end_src
+*** Zentrien
+#+begin_src emacs-lisp :tangle init.el :mkdirp
+(defun org-centering ()
+  "Setzen der Parameter und aktivieren des Modus"
+  (setq visual-fill-column-width 180
+	visual-fill-column-center-text t)
+  (visual-fill-column-mode 1))	 
+(use-package visual-fill-column
+  :hook (org-mode . org-centering))
+#+end_src
 ** Latex-Export
 *** Klasse: "org-plain-latex"
 Diese Latex-Klasse enthält standardmäßig keine Packages oder Header und kann somit vollständif per Setupfile konfiguriert werden.
@@ -111,50 +151,6 @@ Diese Latex-Klasse enthält standardmäßig keine Packages oder Header und kann 
   (add-to-list 'org-latex-classes
 	       '("org-plain-latex"
 		 "\\documentclass{article}
-	     [NO-DEFAULT-PACKAGES]
-	     [PACKAGES]
-	     [EXTRA]"
-		 ("\\section{%s}" . "\\section*{%s}")
-		 ("\\subsection{%s}" . "\\subsection*{%s}")
-		 ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-		 ("\\paragraph{%s}" . "\\paragraph*{%s}")
-		 ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
-#+end_src
-*** Klasse: "org-hp-doc"
-Diese Latex-Klasse enthält standardmäßig keine Packages oder Header und kann somit vollständif per Setupfile konfiguriert werden.
-#+begin_src emacs-lisp :tangle init.el :mkdirp
-  (with-eval-after-load 'ox-latex
-  (add-to-list 'org-latex-classes
-	       '("org-hp-doc"
-		 "\\documentclass[12pt, a4paper, oneside, onecolumn]{article}
-                  \\usepackage{amssymb}                                                                               
-                  \\usepackage[ngerman]{babel}
-                  \\usepackage{hyperref}
-                  \\usepackage{graphicx}
-                  \\usepackage[dvipsnames]{xcolor}
-                  \\definecolor{HP-blue}{RGB}{37,150,190}
-                  \\usepackage{longtable}
-                  \\usepackage[paper=a4paper, left=40mm, right=20mm, top=20mm, bottom=20mm]{geometry}
-                  \\makeatletter
-                  \\def\\@maketitle{%
-		  \\newpage
-		  \\thispagestyle{empty}
-		  \\Huge
-		  \\color{HP-blue}
-                  \\centering
-		  \\textbf{Hegewald \\& Peschke Mess- und Prüftechnik GmbH} \\\\ \\\\
-		  \\vspace{5cm}
-		  \\Large
-		  \\color{black}
-		  \\@title \\\\ \\\\
-		  \\vspace{3cm}
-		  \\normalsize
-		  Autor: \\@author \\\\ \\\\
-		  Datum: \\today \\\\ \\\\
-		  \\vspace{3cm}
-		  \\includegraphics{~/Temp/willy.jpg}
-		  \\newpage }
-		  \\makeatother
 	     [NO-DEFAULT-PACKAGES]
 	     [PACKAGES]
 	     [EXTRA]"
@@ -175,6 +171,10 @@ Diese Latex-Klasse enthält standardmäßig keine Packages oder Header und kann 
 	:config (setq org-roam-directory (file-truename "~/org"))
 		(org-roam-db-autosync-mode t))
 #+end_src
+** PDFs anschauen
+#+begin_src emacs-lisp :tangle init.el :mkdirp
+(use-package pdf-tools)
+#+end_src
 * Finanzen: Ledger
 Ledger ist ein Tool, um Finanzen über Textdokumente zu verwalten.
 #+begin_src emacs-lisp :tangle init.el :mkdirp
@@ -186,3 +186,4 @@ Ledger ist ein Tool, um Finanzen über Textdokumente zu verwalten.
   (use-package flycheck-ledger
     :after ledger-mode)
 #+end_src
+

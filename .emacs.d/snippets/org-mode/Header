@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: Header
+# key: <header
+# --
+#+title: ${1:title}
+#+author: Paul Daemmig
+#+Language: de
+#+date: ${2:date}
+
+$0

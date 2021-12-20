@@ -6,16 +6,17 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "org-roam" "org-roam.el" (0 0 0 0))
-;;; Generated autoloads from org-roam.el
+;;;### (autoloads "actual autoloads are elsewhere" "org-roam" "../../../../.emacs.d/elpa/org-roam-20211215.848/org-roam.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../.emacs.d/elpa/org-roam-20211215.848/org-roam.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "org-roam" '("org-roam-")))
 
 ;;;***
 
-;;;### (autoloads nil "org-roam-capture" "org-roam-capture.el" (0
-;;;;;;  0 0 0))
-;;; Generated autoloads from org-roam-capture.el
+;;;### (autoloads nil "org-roam-capture" "../../../../.emacs.d/elpa/org-roam-20211215.848/org-roam-capture.el"
+;;;;;;  "aae4322e21890a930c8b4d60954c5fa5")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/org-roam-20211215.848/org-roam-capture.el
 
 (autoload 'org-roam-capture- "org-roam-capture" "\
 Main entry point of `org-roam-capture' module.
@@ -38,22 +39,30 @@ The TEMPLATES, if provided, override the list of capture templates (see
 The INFO, if provided, is passed along to the underlying `org-roam-capture-'.
 
 \(fn &optional GOTO KEYS &key FILTER-FN TEMPLATES INFO)" t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "org-roam-capture"
+;;;;;;  "../../../../.emacs.d/elpa/org-roam-20211215.848/org-roam-capture.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../.emacs.d/elpa/org-roam-20211215.848/org-roam-capture.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "org-roam-capture" '("org-roam-capture-")))
 
 ;;;***
+
+;;;***
 
-;;;### (autoloads nil "org-roam-compat" "org-roam-compat.el" (0 0
-;;;;;;  0 0))
-;;; Generated autoloads from org-roam-compat.el
+;;;### (autoloads "actual autoloads are elsewhere" "org-roam-compat"
+;;;;;;  "../../../../.emacs.d/elpa/org-roam-20211215.848/org-roam-compat.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../.emacs.d/elpa/org-roam-20211215.848/org-roam-compat.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "org-roam-compat" '("org-roam--")))
 
 ;;;***
 
-;;;### (autoloads nil "org-roam-dailies" "org-roam-dailies.el" (0
-;;;;;;  0 0 0))
-;;; Generated autoloads from org-roam-dailies.el
+;;;### (autoloads nil "org-roam-dailies" "../../../../.emacs.d/elpa/org-roam-20211215.848/org-roam-dailies.el"
+;;;;;;  "21a2d07a00a4ddde549c8e2081654f82")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/org-roam-20211215.848/org-roam-dailies.el
 
 (autoload 'org-roam-dailies-capture-today "org-roam-dailies" "\
 Create an entry in the daily-note for today.
@@ -115,13 +124,21 @@ Prefer past dates, unless PREFER-FUTURE is non-nil.
 
 (autoload 'org-roam-dailies-find-directory "org-roam-dailies" "\
 Find and open `org-roam-dailies-directory'." t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "org-roam-dailies"
+;;;;;;  "../../../../.emacs.d/elpa/org-roam-20211215.848/org-roam-dailies.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../.emacs.d/elpa/org-roam-20211215.848/org-roam-dailies.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "org-roam-dailies" '("org-roam-dailies-")))
 
 ;;;***
+
+;;;***
 
-;;;### (autoloads nil "org-roam-db" "org-roam-db.el" (0 0 0 0))
-;;; Generated autoloads from org-roam-db.el
+;;;### (autoloads nil "org-roam-db" "../../../../.emacs.d/elpa/org-roam-20211215.848/org-roam-db.el"
+;;;;;;  "90e8d6a24debf598e7560220bfed1b9e")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/org-roam-20211215.848/org-roam-db.el
 
 (autoload 'org-roam-db-sync "org-roam-db" "\
 Synchronize the cache state with the current Org files on-disk.
@@ -158,14 +175,21 @@ database, see `org-roam-db-sync' command.
 
 (autoload 'org-roam-db-autosync-enable "org-roam-db" "\
 Activate `org-roam-db-autosync-mode'." nil nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "org-roam-db"
+;;;;;;  "../../../../.emacs.d/elpa/org-roam-20211215.848/org-roam-db.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../.emacs.d/elpa/org-roam-20211215.848/org-roam-db.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "org-roam-db" '("emacsql-constraint" "org-roam-")))
 
 ;;;***
+
+;;;***
 
-;;;### (autoloads nil "org-roam-graph" "org-roam-graph.el" (0 0 0
-;;;;;;  0))
-;;; Generated autoloads from org-roam-graph.el
+;;;### (autoloads nil "org-roam-graph" "../../../../.emacs.d/elpa/org-roam-20211215.848/org-roam-graph.el"
+;;;;;;  "6f937b3a0a2dc25daf61d1611ce9e9c7")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/org-roam-20211215.848/org-roam-graph.el
 
 (autoload 'org-roam-graph "org-roam-graph" "\
 Build and possibly display a graph for NODE.
@@ -175,27 +199,42 @@ ARG may be any of the following values:
   - `\\[universal-argument]' N   show the graph for NODE limiting nodes to N steps.
 
 \(fn &optional ARG NODE)" t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "org-roam-graph"
+;;;;;;  "../../../../.emacs.d/elpa/org-roam-20211215.848/org-roam-graph.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../.emacs.d/elpa/org-roam-20211215.848/org-roam-graph.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "org-roam-graph" '("org-roam-")))
 
 ;;;***
+
+;;;***
 
-;;;### (autoloads nil "org-roam-migrate" "org-roam-migrate.el" (0
-;;;;;;  0 0 0))
-;;; Generated autoloads from org-roam-migrate.el
+;;;### (autoloads nil "org-roam-migrate" "../../../../.emacs.d/elpa/org-roam-20211215.848/org-roam-migrate.el"
+;;;;;;  "3460ec7e266662c6436c0edb30fcc5a5")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/org-roam-20211215.848/org-roam-migrate.el
 
 (autoload 'org-roam-migrate-wizard "org-roam-migrate" "\
 Migrate all notes from to be compatible with Org-roam v2.
 1. Convert all notes from v1 format to v2.
 2. Rebuild the cache.
 3. Replace all file links with ID links." t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "org-roam-migrate"
+;;;;;;  "../../../../.emacs.d/elpa/org-roam-20211215.848/org-roam-migrate.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../.emacs.d/elpa/org-roam-20211215.848/org-roam-migrate.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "org-roam-migrate" '("org-roam-migrate-")))
 
 ;;;***
+
+;;;***
 
-;;;### (autoloads nil "org-roam-mode" "org-roam-mode.el" (0 0 0 0))
-;;; Generated autoloads from org-roam-mode.el
+;;;### (autoloads nil "org-roam-mode" "../../../../.emacs.d/elpa/org-roam-20211215.848/org-roam-mode.el"
+;;;;;;  "d46680f7942243c84c663216861db15e")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/org-roam-20211215.848/org-roam-mode.el
 
 (autoload 'org-roam-buffer-display-dedicated "org-roam-mode" "\
 Launch NODE dedicated Org-roam buffer.
@@ -207,13 +246,21 @@ In interactive calls prompt to select NODE, unless called with
 `org-roam-node-at-point'.
 
 \(fn NODE)" t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "org-roam-mode"
+;;;;;;  "../../../../.emacs.d/elpa/org-roam-20211215.848/org-roam-mode.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../.emacs.d/elpa/org-roam-20211215.848/org-roam-mode.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "org-roam-mode" '("org-roam-")))
 
 ;;;***
+
+;;;***
 
-;;;### (autoloads nil "org-roam-node" "org-roam-node.el" (0 0 0 0))
-;;; Generated autoloads from org-roam-node.el
+;;;### (autoloads nil "org-roam-node" "../../../../.emacs.d/elpa/org-roam-20211215.848/org-roam-node.el"
+;;;;;;  "9c19845a6ffece16f45eb2d7fe81952a")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/org-roam-20211215.848/org-roam-node.el
 
 (autoload 'org-roam-node-find "org-roam-node" "\
 Find and open an Org-roam node by its title or alias.
@@ -275,30 +322,39 @@ FILTER-FN is a function to filter out nodes: it takes an `org-roam-node',
 and when nil is returned the node will be filtered out.
 
 \(fn &optional INITIAL-INPUT FILTER-FN)" t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "org-roam-node"
+;;;;;;  "../../../../.emacs.d/elpa/org-roam-20211215.848/org-roam-node.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../.emacs.d/elpa/org-roam-20211215.848/org-roam-node.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "org-roam-node" '("org-roam-")))
 
 ;;;***
+
+;;;***
 
-;;;### (autoloads nil "org-roam-overlay" "org-roam-overlay.el" (0
-;;;;;;  0 0 0))
-;;; Generated autoloads from org-roam-overlay.el
+;;;### (autoloads "actual autoloads are elsewhere" "org-roam-overlay"
+;;;;;;  "../../../../.emacs.d/elpa/org-roam-20211215.848/org-roam-overlay.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../.emacs.d/elpa/org-roam-20211215.848/org-roam-overlay.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "org-roam-overlay" '("org-roam-overlay-")))
 
 ;;;***
 
-;;;### (autoloads nil "org-roam-protocol" "org-roam-protocol.el"
+;;;### (autoloads "actual autoloads are elsewhere" "org-roam-protocol"
+;;;;;;  "../../../../.emacs.d/elpa/org-roam-20211215.848/org-roam-protocol.el"
 ;;;;;;  (0 0 0 0))
-;;; Generated autoloads from org-roam-protocol.el
+;;; Generated autoloads from ../../../../.emacs.d/elpa/org-roam-20211215.848/org-roam-protocol.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "org-roam-protocol" '("org-roam-")))
 
 ;;;***
 
-;;;### (autoloads nil "org-roam-utils" "org-roam-utils.el" (0 0 0
-;;;;;;  0))
-;;; Generated autoloads from org-roam-utils.el
+;;;### (autoloads nil "org-roam-utils" "../../../../.emacs.d/elpa/org-roam-20211215.848/org-roam-utils.el"
+;;;;;;  "292f1ac0334b9e8b64acc3be988b5f7d")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/org-roam-20211215.848/org-roam-utils.el
 
 (autoload 'org-roam-version "org-roam-utils" "\
 Return `org-roam' version.
@@ -308,12 +364,33 @@ Interactively, or when MESSAGE is non-nil, show in the echo area.
 
 (autoload 'org-roam-diagnostics "org-roam-utils" "\
 Collect and print info for `org-roam' issues." t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "org-roam-utils"
+;;;;;;  "../../../../.emacs.d/elpa/org-roam-20211215.848/org-roam-utils.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../.emacs.d/elpa/org-roam-20211215.848/org-roam-utils.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "org-roam-utils" '("org-roam-")))
 
 ;;;***
+
+;;;***
 
-;;;### (autoloads nil nil ("org-roam-pkg.el") (0 0 0 0))
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/org-roam-20211215.848/org-roam-autoloads.el"
+;;;;;;  "../../../../.emacs.d/elpa/org-roam-20211215.848/org-roam-capture.el"
+;;;;;;  "../../../../.emacs.d/elpa/org-roam-20211215.848/org-roam-compat.el"
+;;;;;;  "../../../../.emacs.d/elpa/org-roam-20211215.848/org-roam-dailies.el"
+;;;;;;  "../../../../.emacs.d/elpa/org-roam-20211215.848/org-roam-db.el"
+;;;;;;  "../../../../.emacs.d/elpa/org-roam-20211215.848/org-roam-graph.el"
+;;;;;;  "../../../../.emacs.d/elpa/org-roam-20211215.848/org-roam-migrate.el"
+;;;;;;  "../../../../.emacs.d/elpa/org-roam-20211215.848/org-roam-mode.el"
+;;;;;;  "../../../../.emacs.d/elpa/org-roam-20211215.848/org-roam-node.el"
+;;;;;;  "../../../../.emacs.d/elpa/org-roam-20211215.848/org-roam-overlay.el"
+;;;;;;  "../../../../.emacs.d/elpa/org-roam-20211215.848/org-roam-pkg.el"
+;;;;;;  "../../../../.emacs.d/elpa/org-roam-20211215.848/org-roam-protocol.el"
+;;;;;;  "../../../../.emacs.d/elpa/org-roam-20211215.848/org-roam-utils.el"
+;;;;;;  "../../../../.emacs.d/elpa/org-roam-20211215.848/org-roam.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

@@ -1,7 +1,6 @@
 #+title: Konfiguration für den StumpWm
 #+author: Paul Dämmig
 * Basic
-
 #+begin_src lisp :tangle config
   (in-package :stumpwm)
   ;;Super-key Festlegen
@@ -10,7 +9,10 @@
   (run-shell-command "xmodmap -e 'clear mod4'" t)
   (run-shell-command "xmodmap -e \'keycode 133 = F20\'" t)
   (set-prefix-key (kbd "F20"))
-  (run-shell-command "feh --bg-scale ~/Bilder/desktop.jpg")
+
+  ;;XRandr, Feh, Picom
+  (run-shell-command "picom &")
+  (run-shell-command "feh --bg-scale ~/Bilder/desktop.png")
   (run-shell-command "xrandr --output HDMI-0 --right-of DVI-1 --output DisplayPort-0 --right-of HDMI-0")
 #+end_src
 * Fensterverwaltung
@@ -33,47 +35,44 @@
         swm-gaps:*outer-gaps-size* 8
         swm-gaps:*head-gaps-size* 0)
 #+end_src
-* Shortcuts
-#+begin_src lisp :tangle config
-(define-key *root-map* (kbd "Q") "quit")
-(define-key *root-map* (kbd "C-r") "restart-hard")
-(define-key *root-map* (kbd "q") "delete")
-(define-key *root-map* (kbd "r") "remove")
-(define-key *root-map* (kbd "h") "move-focus left")
-(define-key *root-map* (kbd "j") "move-focus down")
-(define-key *root-map* (kbd "k") "move-focus up")
-(define-key *root-map* (kbd "l") "move-focus right")
-(define-key *root-map* (kbd "H") "move-window left")
-(define-key *root-map* (kbd "J") "move-window down")
-(define-key *root-map* (kbd "K") "move-window up")
-(define-key *root-map* (kbd "L") "move-window right")
-;;Gaps
-(define-key *root-map* (kbd "g") "toggle-gaps")
-;;Terminal
-(define-key *root-map* (kbd "RET") "exec alacritty")
-;;Browser
-(define-key *root-map* (kbd "w") "exec nyxt")
-;;Resize Frames
-(setf *resize-increment* 25)
-(define-key *root-map* (kbd "R") "iresize")
-(define-key *top-map* (kbd "M-l") "resize-direction Right")
-(define-key *top-map* (kbd "M-h") "resize-direction Left")
-(define-key *top-map* (kbd "M-k") "resize-direction Up")
-(define-key *top-map* (kbd "M-j") "resize-direction Down")
-#+end_src
 * Modeline
 #+begin_src lisp :tangle config
-    (setf *window-format* "%m%n%s%c")
-    (setf *screen-mode-line-format* (list "[^B%n^b] %W^>%d"))
-    (setf *screen-mode-line-screen* "HDMI-0")
-
-    (setf *time-modeline-string* "%a %b %e %k:%M")
-
-    (setf *mode-line-timeout* 2)
-
-    (enable-mode-line (current-screen) (current-head) t)
+  (setf *window-format* "%m%n%s%c")
+  (setf *screen-mode-line-format* (list "[^B%n^b] %W^>%d"))
+  (setf *screen-mode-line-screen* (current-screen))
+  (setf *time-modeline-string* "%a %b %e %k:%M")
+  (setf *mode-line-timeout* 2)
 #+end_src
-
+* Shortcuts
+#+begin_src lisp :tangle config
+  (define-key *root-map* (kbd "Q") "quit")
+  (define-key *root-map* (kbd "C-r") "restart-hard")
+  (define-key *root-map* (kbd "q") "delete")
+  (define-key *root-map* (kbd "r") "remove")
+  (define-key *root-map* (kbd "h") "move-focus left")
+  (define-key *root-map* (kbd "j") "move-focus down")
+  (define-key *root-map* (kbd "k") "move-focus up")
+  (define-key *root-map* (kbd "l") "move-focus right")
+  (define-key *root-map* (kbd "H") "move-window left")
+  (define-key *root-map* (kbd "J") "move-window down")
+  (define-key *root-map* (kbd "K") "move-window up")
+  (define-key *root-map* (kbd "L") "move-window right")
+  ;;Gaps
+  (define-key *root-map* (kbd "g") "toggle-gaps")
+  ;;Modeline
+  (define-key *root-map* (kbd "m") "mode-line")
+  ;;Terminal
+  (define-key *root-map* (kbd "RET") "exec alacritty")
+  ;;Browser
+  (define-key *root-map* (kbd "w") "exec nyxt")
+  ;;Resize Frames
+  (setf *resize-increment* 25)
+  (define-key *root-map* (kbd "R") "iresize")
+  (define-key *top-map* (kbd "M-l") "resize-direction Right")
+  (define-key *top-map* (kbd "M-h") "resize-direction Left")
+  (define-key *top-map* (kbd "M-k") "resize-direction Up")
+  (define-key *top-map* (kbd "M-j") "resize-direction Down")
+#+end_src
 * Hilfefenster
 #+begin_src lisp :tangle config
   (setf *message-window-gravity* :center

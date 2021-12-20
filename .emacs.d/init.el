@@ -1,15 +1,18 @@
 (require 'package)
 
-(setq package-archives '(("melpa" . "https://melpa.org/packages/")
-			 ("org" . "https://orgmode.org/elpa/")
-			 ("elpa" . "https://elpa.gnu.org/packages/")))
+  (setq package-archives '(("melpa" . "https://melpa.org/packages/")
+			   ("org" . "https://orgmode.org/elpa/")
+			   ("elpa" . "https://elpa.gnu.org/packages/")))
 
-(package-initialize)
-(unless package-archive-contents
-  (package-refresh-contents))
+  (package-initialize)
+  (unless package-archive-contents
+    (package-refresh-contents))
 
-(require 'use-package)
-(setq use-package-always-ensure t)
+(unless (package-installed-p 'use-package)
+  (package-install 'use-package))
+
+  (require 'use-package)
+  (setq use-package-always-ensure t)
 
 (setq inhibit-startup-message t)
 (scroll-bar-mode -1)
@@ -28,12 +31,19 @@
 		eshell-mode-hook))
   (add-hook mode (lambda () (display-line-numbers-mode 0))))
 
+(set-face-attribute 'default nil :font "NotoSans Nerd Font" :height 120)
+(set-face-attribute 'fixed-pitch nil :font "NotoSans Nerd Font" :height 120)
+(set-face-attribute 'variable-pitch nil :font "Hack Nerd Font" :height 140)
+
 (use-package all-the-icons)
 (use-package doom-modeline
   :init (doom-modeline-mode 1))
 
 (use-package doom-themes
-  :init (load-theme 'doom-palenight t))
+  :init (load-theme 'doom-moonlight t))
+
+(use-package dashboard
+  :config (dashboard-setup-startup-hook))
 
 (use-package evil
   :config (evil-mode 1))
@@ -54,11 +64,18 @@
 (use-package company
   :config (global-company-mode t))
 
-(use-package rainbow-delimiters
- :config (rainbow-delimiters-mode t))
+(use-package yasnippet
+  :config (setq yas-snippet-dirs '("~/.emacs.d/snippets"))
+          (yas-global-mode 1))
+
+(use-package rainbow-delimiters)
 
 (use-package magit)
 (use-package projectile)
+
+(add-hook 'org-mode-hook (lambda () (org-indent-mode 1)))
+(add-hook 'org-mode-hook (lambda () (variable-pitch-mode 1)))
+(add-hook 'org-mode-hook (lambda () (visual-line-mode 1)))
 
 (global-set-key (kbd "C-c l") 'org-store-link)
 (global-set-key (kbd "C-c a") 'org-agenda)
@@ -66,51 +83,21 @@
 
 (setq org-startup-folded t)
 
+(use-package org-superstar)
+  (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
+
+(defun org-centering ()
+  "Setzen der Parameter und aktivieren des Modus"
+  (setq visual-fill-column-width 180
+	visual-fill-column-center-text t)
+  (visual-fill-column-mode 1))	 
+(use-package visual-fill-column
+  :hook (org-mode . org-centering))
+
 (with-eval-after-load 'ox-latex
 (add-to-list 'org-latex-classes
 	     '("org-plain-latex"
 	       "\\documentclass{article}
-	   [NO-DEFAULT-PACKAGES]
-	   [PACKAGES]
-	   [EXTRA]"
-	       ("\\section{%s}" . "\\section*{%s}")
-	       ("\\subsection{%s}" . "\\subsection*{%s}")
-	       ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-	       ("\\paragraph{%s}" . "\\paragraph*{%s}")
-	       ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
-
-(with-eval-after-load 'ox-latex
-(add-to-list 'org-latex-classes
-	     '("org-hp-doc"
-	       "\\documentclass[12pt, a4paper, oneside, onecolumn]{article}
-                \\usepackage{amssymb}                                                                               
-                \\usepackage[ngerman]{babel}
-                \\usepackage{hyperref}
-                \\usepackage{graphicx}
-                \\usepackage[dvipsnames]{xcolor}
-                \\definecolor{HP-blue}{RGB}{37,150,190}
-                \\usepackage{longtable}
-                \\usepackage[paper=a4paper, left=40mm, right=20mm, top=20mm, bottom=20mm]{geometry}
-                \\makeatletter
-                \\def\\@maketitle{%
-		\\newpage
-		\\thispagestyle{empty}
-		\\Huge
-		\\color{HP-blue}
-                \\centering
-		\\textbf{Hegewald \\& Peschke Mess- und Prüftechnik GmbH} \\\\ \\\\
-		\\vspace{5cm}
-		\\Large
-		\\color{black}
-		\\@title \\\\ \\\\
-		\\vspace{3cm}
-		\\normalsize
-		Autor: \\@author \\\\ \\\\
-		Datum: \\today \\\\ \\\\
-		\\vspace{3cm}
-		\\includegraphics{~/Temp/willy.jpg}
-		\\newpage }
-		\\makeatother
 	   [NO-DEFAULT-PACKAGES]
 	   [PACKAGES]
 	   [EXTRA]"
@@ -126,6 +113,8 @@
   :config (setq org-roam-directory (file-truename "~/org"))
 	  (org-roam-db-autosync-mode t))
 
+(use-package pdf-tools)
+
 (use-package ledger-mode
     :mode ("\\.dat\\'"
            "\\.ledger\\'")
@@ -133,3 +122,16 @@
        
   (use-package flycheck-ledger
     :after ledger-mode)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   '(vterm yasnippet visual-fill-column use-package rainbow-delimiters projectile pdf-tools org-superstar org-roam ob-napkin magit lsp-ui lsp-treemacs lsp-ivy ledger-mode flycheck-ledger evil doom-themes doom-modeline dashboard counsel company)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

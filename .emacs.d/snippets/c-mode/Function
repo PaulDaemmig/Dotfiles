@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name:  Function
+# key: <fun
+# --
+/*
+${1:Description}
+*/
+${2:return} ${3:name} (${5:input}){
+	    $0
+	    return 0;
+}
