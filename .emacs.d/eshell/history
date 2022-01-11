@@ -1,2 +1,5 @@
-gcc scanf.c -o scanf
-./scanf 
+firefox
+touch .xsession
+exit 
+make && sudo make install
+exit

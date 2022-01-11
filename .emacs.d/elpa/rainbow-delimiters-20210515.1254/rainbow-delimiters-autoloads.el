@@ -7,7 +7,7 @@
 
 
 ;;;### (autoloads nil "rainbow-delimiters" "../../../../.emacs.d/elpa/rainbow-delimiters-20210515.1254/rainbow-delimiters.el"
-;;;;;;  "5978f88ab96555ace6a69924e7aecb7f")
+;;;;;;  "14d399c064f52e1c5bcd9493e17e248a")
 ;;; Generated autoloads from ../../../../.emacs.d/elpa/rainbow-delimiters-20210515.1254/rainbow-delimiters.el
 
 (autoload 'rainbow-delimiters-mode "rainbow-delimiters" "\

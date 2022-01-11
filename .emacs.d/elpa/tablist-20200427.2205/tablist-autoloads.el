@@ -6,8 +6,9 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "tablist" "tablist.el" (0 0 0 0))
-;;; Generated autoloads from tablist.el
+;;;### (autoloads nil "tablist" "../../../../.emacs.d/elpa/tablist-20200427.2205/tablist.el"
+;;;;;;  "6e576ad56bd7590c5160bf49587792fc")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/tablist-20200427.2205/tablist.el
 
 (autoload 'tablist-minor-mode "tablist" "\
 Toggle Tablist minor mode on or off.
@@ -25,20 +26,31 @@ toggle it if ARG is `toggle'; disable the mode otherwise.
 
 
 \(fn)" t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "tablist" "../../../../.emacs.d/elpa/tablist-20200427.2205/tablist.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../.emacs.d/elpa/tablist-20200427.2205/tablist.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "tablist" '("tablist-")))
 
 ;;;***
+
+;;;***
 
-;;;### (autoloads nil "tablist-filter" "tablist-filter.el" (0 0 0
-;;;;;;  0))
-;;; Generated autoloads from tablist-filter.el
+;;;### (autoloads "actual autoloads are elsewhere" "tablist-filter"
+;;;;;;  "../../../../.emacs.d/elpa/tablist-20200427.2205/tablist-filter.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../.emacs.d/elpa/tablist-20200427.2205/tablist-filter.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "tablist-filter" '("tablist-filter-")))
 
 ;;;***
 
-;;;### (autoloads nil nil ("tablist-pkg.el") (0 0 0 0))
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/tablist-20200427.2205/tablist-autoloads.el"
+;;;;;;  "../../../../.emacs.d/elpa/tablist-20200427.2205/tablist-filter.el"
+;;;;;;  "../../../../.emacs.d/elpa/tablist-20200427.2205/tablist-pkg.el"
+;;;;;;  "../../../../.emacs.d/elpa/tablist-20200427.2205/tablist.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 
