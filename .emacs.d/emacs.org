@@ -50,6 +50,11 @@
   (set-face-attribute 'fixed-pitch nil :font "NotoSans Nerd Font" :height 120)
   (set-face-attribute 'variable-pitch nil :font "Hack Nerd Font" :height 140)
 #+end_src
+** Opacity
+#+begin_src emacs-lisp :tangle init.el :mkdirp yes
+  (set-frame-parameter (selected-frame) 'alpha '(100 . 80))
+  (add-to-list 'default-frame-alist '(alpha . (100 . 80)))
+#+end_src
 ** Doom-Modeline
 #+begin_src emacs-lisp :tangle init.el :mkdirp yes
 		 (use-package all-the-icons)
@@ -59,7 +64,7 @@
 ** Doom-Theme
 #+begin_src emacs-lisp :tangle init.el :mkdirp yes
 		 (use-package doom-themes
-		   :init (load-theme 'doom-moonlight t))
+		   :init (load-theme 'doom-palenight t))
 #+end_src
 ** Dashboard
 #+begin_src emacs-lisp :tangle init.el :mkdirp yes
@@ -69,8 +74,12 @@
 #+end_src
 * Evil: Vim-Belegung in Emacs
 #+begin_src emacs-lisp :tangle init.el :mkdirp yes
-	 (use-package evil
-	   :config (evil-mode 1))
+  (use-package evil
+    :init (setq evil-want-keybinding nil)
+    :config (evil-mode 1))
+
+  (use-package evil-collection
+    :config (evil-collection-init))
 #+end_src
 * Counsel
 #+begin_src emacs-lisp :tangle init.el :mkdirp yes
@@ -110,7 +119,8 @@
 #+end_src
 ** Rainbow-Delimeters
 #+begin_src emacs-lisp :tangle init.el :mkdirp
-  (use-package rainbow-delimiters)
+  (use-package rainbow-delimiters
+    :config (rainbow-delimiters-mode t))
 #+end_src
 * Projektverwaltung
 #+begin_src emacs-lisp :tangle init.el :mkdirp
@@ -141,13 +151,13 @@
 #+end_src
 *** Zentrien
 #+begin_src emacs-lisp :tangle init.el :mkdirp
-(defun org-centering ()
-  "Setzen der Parameter und aktivieren des Modus"
-  (setq visual-fill-column-width 180
-	visual-fill-column-center-text t)
-  (visual-fill-column-mode 1))	 
-(use-package visual-fill-column
-  :hook (org-mode . org-centering))
+  (defun olivetti-centering ()
+  "Zentrieren von Buffern"
+  (olivetti-mode 1)
+  (olivetti-set-width 0.8))
+  
+  (use-package olivetti
+    :hook (org-mode . olivetti-centering))
 #+end_src
 ** Latex-Export
 *** Klasse: "org-plain-latex"
