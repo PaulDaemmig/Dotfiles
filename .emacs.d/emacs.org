@@ -24,7 +24,7 @@
     (require 'use-package)
     (setq use-package-always-ensure t)
 #+end_src
-* Konfiguration der Oberflaeche
+* Konfiguration der Oberfläche
 ** Basics
 #+begin_src emacs-lisp :tangle init.el :mkdirp yes
 	 (setq inhibit-startup-message t)
@@ -46,14 +46,14 @@
 #+end_src
 ** Font
 #+begin_src emacs-lisp :tangle init.el :mkdirp yes
-  (set-face-attribute 'default nil :font "NotoSans Nerd Font" :height 120)
-  (set-face-attribute 'fixed-pitch nil :font "NotoSans Nerd Font" :height 120)
-  (set-face-attribute 'variable-pitch nil :font "Hack Nerd Font" :height 140)
+  (set-face-attribute 'default nil :font "Hack Nerd Font" :height 120)
+  (set-face-attribute 'fixed-pitch nil :font "Hack Nerd Font" :height 120)
+  (set-face-attribute 'variable-pitch nil :font "CodeNewRoman Nerd Font" :height 140)
 #+end_src
 ** Opacity
 #+begin_src emacs-lisp :tangle init.el :mkdirp yes
-  (set-frame-parameter (selected-frame) 'alpha '(100 . 80))
-  (add-to-list 'default-frame-alist '(alpha . (100 . 80)))
+  (set-frame-parameter (selected-frame) 'alpha '(90 . 90))
+  (add-to-list 'default-frame-alist '(alpha . (90 . 90)))
 #+end_src
 ** Doom-Modeline
 #+begin_src emacs-lisp :tangle init.el :mkdirp yes
@@ -105,6 +105,10 @@
     :config (global-flycheck-mode t))
   (use-package lsp-ivy)
   (use-package lsp-treemacs)
+  (use-package treemacs-evil)
+  (use-package treemacs-projectile)
+  (use-package treemacs-icons-dired
+    :hook (dired-mode . treemacs-icons-dired-enable-once))
 #+end_src
 ** Company
 #+begin_src emacs-lisp :tangle init.el :mkdirp
@@ -117,10 +121,16 @@
       :config (setq yas-snippet-dirs '("~/.emacs.d/snippets"))
               (yas-global-mode 1))
 #+end_src
-** Rainbow-Delimeters
+** Rainbow-Delimiters
 #+begin_src emacs-lisp :tangle init.el :mkdirp
   (use-package rainbow-delimiters
     :config (rainbow-delimiters-mode t))
+#+end_src
+** Languages
+*** Common Lisp(SLIME)
+#+begin_src emacs-lisp :tangle init.el :mkdirp yes
+  (use-package slime)
+  (setq inferior-lisp-program "sbcl")
 #+end_src
 * Projektverwaltung
 #+begin_src emacs-lisp :tangle init.el :mkdirp
@@ -129,6 +139,7 @@
 #+end_src
 * ORG-Mode
 #+begin_src emacs-lisp :tangle init.el :mkdirp
+  (use-package org)
   (add-hook 'org-mode-hook (lambda () (org-indent-mode 1)))
   (add-hook 'org-mode-hook (lambda () (variable-pitch-mode 1)))
   (add-hook 'org-mode-hook (lambda () (visual-line-mode 1)))
