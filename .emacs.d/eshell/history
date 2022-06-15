@@ -1,5 +1,2 @@
-firefox
-touch .xsession
-exit 
-make && sudo make install
+home-manager switch
 exit

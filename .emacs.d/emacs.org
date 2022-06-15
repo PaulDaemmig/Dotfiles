@@ -48,8 +48,8 @@
 #+end_src
 ** Opacity
 #+begin_src emacs-lisp :tangle init.el :mkdirp yes
-  (set-frame-parameter (selected-frame) 'alpha '(90 . 90))
-  (add-to-list 'default-frame-alist '(alpha . (90 . 90)))
+  (set-frame-parameter (selected-frame) 'alpha '(100 . 100))
+  (add-to-list 'default-frame-alist '(alpha . (100 . 100)))
 #+end_src
 ** Doom-Modeline
 #+begin_src emacs-lisp :tangle init.el :mkdirp yes
@@ -80,10 +80,7 @@
 * Counsel
 #+begin_src emacs-lisp :tangle init.el :mkdirp yes
 	 (use-package counsel
-	   :config (ivy-mode 1)
-		   (global-set-key (kbd "C-s") 'swiper-isearch)
-		   (global-set-key (kbd "C-x C-b") 'counsel-switch-buffer)
-		   (global-set-key (kbd "M-x") 'counsel-M-x))
+	   :config (ivy-mode 1))
 #+end_src
 ** which-key
 #+begin_src emacs-lisp :tangle init.el :mkdirp yes
@@ -128,8 +125,9 @@
 #+end_src
 * Projektverwaltung
 #+begin_src emacs-lisp :tangle init.el :mkdirp
-  (use-package magit)
-  (use-package projectile)
+    (use-package magit)
+    (use-package projectile
+      :config (projectile-mode +1))
 #+end_src
 * ORG-Mode
 #+begin_src emacs-lisp :tangle init.el :mkdirp
@@ -217,3 +215,24 @@ Kontrolle der Rechtschreibung.
           (setq ispell-extra-args '("--sug-mode=ultra" "--lang=de_DE" "--run-together" "--run-together-limit=16"))
   :hook (org-mode . wucuo-start))
 #+end_src
+* Keybindings
+#+begin_src emacs-lisp :tangle init.el :mkdirp yes
+            (use-package general
+            :config
+              (general-create-definer my-leader-def
+               :prefix "SPC")
+
+              (my-leader-def
+                :keymaps 'normal
+                "a" 'org-agenda
+                "d" 'counsel-dired
+                "l" 'lsp
+                "t" 'treemacs
+                "p" 'projectile-command-map)
+
+              (general-define-key
+               "M-x" 'counsel-M-x
+               "C-x C-b" 'counsel-switch-buffer
+               "C-s" 'swiper-isearch))
+#+end_src
+

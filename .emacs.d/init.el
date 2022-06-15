@@ -31,39 +31,45 @@
 		eshell-mode-hook))
   (add-hook mode (lambda () (display-line-numbers-mode 0))))
 
-(set-face-attribute 'default nil :font "NotoSans Nerd Font" :height 120)
-(set-face-attribute 'fixed-pitch nil :font "NotoSans Nerd Font" :height 120)
-(set-face-attribute 'variable-pitch nil :font "Hack Nerd Font" :height 140)
+(set-face-attribute 'default nil :font "CodeNewRoman Nerd Font" :height 140)
+(set-face-attribute 'fixed-pitch nil :font "CodeNewRoman Nerd Font" :height 140)
+(set-face-attribute 'variable-pitch nil :font "Hack Nerd Font" :height 120)
+
+(set-frame-parameter (selected-frame) 'alpha '(100 . 100))
+(add-to-list 'default-frame-alist '(alpha . (100 . 100)))
 
 (use-package all-the-icons)
 (use-package doom-modeline
   :init (doom-modeline-mode 1))
 
 (use-package doom-themes
-  :init (load-theme 'doom-moonlight t))
+  :init (load-theme 'doom-palenight t))
 
 (use-package dashboard
   :config (dashboard-setup-startup-hook))
 (setq dashboard-center-content t)
 
 (use-package evil
+  :init (setq evil-want-keybinding nil)
   :config (evil-mode 1))
 
+(use-package evil-collection
+  :config (evil-collection-init))
+
 (use-package counsel
-  :config (ivy-mode 1)
-	  (global-set-key (kbd "C-s") 'swiper-isearch)
-	  (global-set-key (kbd "C-x C-b") 'counsel-switch-buffer)
-	  (global-set-key (kbd "M-x") 'counsel-M-x))
+  :config (ivy-mode 1))
 
 (use-package which-key
   :config (which-key-mode t))
 
 (use-package lsp-mode)
 (use-package lsp-ui)
-(use-package flycheck
-  :config (global-flycheck-mode t))
 (use-package lsp-ivy)
 (use-package lsp-treemacs)
+(use-package treemacs-evil)
+(use-package treemacs-projectile)
+(use-package treemacs-icons-dired
+  :hook (dired-mode . treemacs-icons-dired-enable-once))
 
 (use-package company
   :config (global-company-mode t))
@@ -72,11 +78,17 @@
   :config (setq yas-snippet-dirs '("~/.emacs.d/snippets"))
           (yas-global-mode 1))
 
-(use-package rainbow-delimiters)
+(use-package rainbow-delimiters
+  :hook (prog-mode . rainbow-delimiters-mode ))
+
+(use-package slime)
+(setq inferior-lisp-program "sbcl")
 
 (use-package magit)
-(use-package projectile)
+(use-package projectile
+  :config (projectile-mode +1))
 
+(use-package org)
 (add-hook 'org-mode-hook (lambda () (org-indent-mode 1)))
 (add-hook 'org-mode-hook (lambda () (variable-pitch-mode 1)))
 (add-hook 'org-mode-hook (lambda () (visual-line-mode 1)))
@@ -90,13 +102,13 @@
 (use-package org-superstar)
   (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
 
-(defun org-centering ()
-  "Setzen der Parameter und aktivieren des Modus"
-  (setq visual-fill-column-width 180
-	visual-fill-column-center-text t)
-  (visual-fill-column-mode 1))	 
-(use-package visual-fill-column
-  :hook (org-mode . org-centering))
+(defun olivetti-centering ()
+"Zentrieren von Buffern"
+(olivetti-mode 1)
+(olivetti-set-width 0.8))
+
+(use-package olivetti
+  :hook (org-mode . olivetti-centering))
 
 (with-eval-after-load 'ox-latex
 (add-to-list 'org-latex-classes
@@ -123,19 +135,26 @@
     :mode ("\\.dat\\'"
            "\\.ledger\\'")
     :custom (ledger-clear-whole-transactions t))
-       
-  (use-package flycheck-ledger
-    :after ledger-mode)
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   '(lua-mode haskell-mode yasnippet which-key visual-fill-column use-package rainbow-delimiters projectile pdf-tools org-superstar org-roam ob-napkin magit lsp-ui lsp-treemacs lsp-ivy ledger-mode flycheck-ledger exwm evil doom-themes doom-modeline dashboard counsel company)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+
+(use-package wucuo
+  :config (setq ispell-program-name "aspell")
+          (setq ispell-extra-args '("--sug-mode=ultra" "--lang=de_DE" "--run-together" "--run-together-limit=16"))
+  :hook (org-mode . wucuo-start))
+
+(use-package general
+:config
+  (general-create-definer my-leader-def
+   :prefix "SPC")
+
+  (my-leader-def
+    :keymaps 'normal
+    "a" 'org-agenda
+    "d" 'counsel-dired
+    "l" 'lsp
+    "t" 'treemacs
+    "p" 'projectile-command-map)
+
+  (general-define-key
+   "M-x" 'counsel-M-x
+   "C-x C-b" 'counsel-switch-buffer
+   "C-s" 'swiper-isearch))

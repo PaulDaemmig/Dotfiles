@@ -1,4 +1,4 @@
-;;; lsp-ivy-autoloads.el --- automatically extracted autoloads
+;;; lsp-ivy-autoloads.el --- automatically extracted autoloads  -*- lexical-binding: t -*-
 ;;
 ;;; Code:
 
@@ -6,9 +6,8 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "lsp-ivy" "../../../../.emacs.d/elpa/lsp-ivy-20210904.2043/lsp-ivy.el"
-;;;;;;  "7010ff93ffb960c7072b0b117f35990d")
-;;; Generated autoloads from ../../../../.emacs.d/elpa/lsp-ivy-20210904.2043/lsp-ivy.el
+;;;### (autoloads nil "lsp-ivy" "lsp-ivy.el" (0 0 0 0))
+;;; Generated autoloads from lsp-ivy.el
 
 (autoload 'lsp-ivy-workspace-symbol "lsp-ivy" "\
 `ivy' for lsp workspace/symbol.
@@ -24,20 +23,8 @@ When called with prefix ARG the default selection will be symbol at point.
 
 (autoload 'lsp-ivy-workspace-folders-remove "lsp-ivy" "\
 Remove a project-root from the list of workspace folders." t nil)
-
-;;;### (autoloads "actual autoloads are elsewhere" "lsp-ivy" "../../../../.emacs.d/elpa/lsp-ivy-20210904.2043/lsp-ivy.el"
-;;;;;;  (0 0 0 0))
-;;; Generated autoloads from ../../../../.emacs.d/elpa/lsp-ivy-20210904.2043/lsp-ivy.el
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "lsp-ivy" '("lsp-ivy-")))
-
-;;;***
-
-;;;***
-
-;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/lsp-ivy-20210904.2043/lsp-ivy-autoloads.el"
-;;;;;;  "../../../../.emacs.d/elpa/lsp-ivy-20210904.2043/lsp-ivy.el")
-;;;;;;  (0 0 0 0))
+(register-definition-prefixes "lsp-ivy" '("lsp-ivy-"))
 
 ;;;***
 

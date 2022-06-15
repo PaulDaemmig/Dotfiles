@@ -1,4 +1,4 @@
-;;; ob-napkin-autoloads.el --- automatically extracted autoloads
+;;; ob-napkin-autoloads.el --- automatically extracted autoloads  -*- lexical-binding: t -*-
 ;;
 ;;; Code:
 
@@ -6,9 +6,8 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "ob-napkin" "../../../../.emacs.d/elpa/ob-napkin-20200816.1245/ob-napkin.el"
-;;;;;;  "ca520a273926635ed82a008657172e94")
-;;; Generated autoloads from ../../../../.emacs.d/elpa/ob-napkin-20200816.1245/ob-napkin.el
+;;;### (autoloads nil "ob-napkin" "ob-napkin.el" (0 0 0 0))
+;;; Generated autoloads from ob-napkin.el
 
 (autoload 'org-babel-execute:napkin "ob-napkin" "\
 Execute a block of napkin code with BODY and PARAMS with Babel.
@@ -21,20 +20,8 @@ Execute a block of plantuml code with BODY and PARAMS with Babel.
 napkin_plantuml tool will be invoked to generate the image.
 
 \(fn BODY PARAMS)" nil nil)
-
-;;;### (autoloads "actual autoloads are elsewhere" "ob-napkin" "../../../../.emacs.d/elpa/ob-napkin-20200816.1245/ob-napkin.el"
-;;;;;;  (0 0 0 0))
-;;; Generated autoloads from ../../../../.emacs.d/elpa/ob-napkin-20200816.1245/ob-napkin.el
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "ob-napkin" '("ob-napkin-unload-function" "org-babel-")))
-
-;;;***
-
-;;;***
-
-;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/ob-napkin-20200816.1245/ob-napkin-autoloads.el"
-;;;;;;  "../../../../.emacs.d/elpa/ob-napkin-20200816.1245/ob-napkin.el")
-;;;;;;  (0 0 0 0))
+(register-definition-prefixes "ob-napkin" '("ob-napkin-unload-function" "org-babel-"))
 
 ;;;***
 

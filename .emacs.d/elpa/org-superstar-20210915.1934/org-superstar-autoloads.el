@@ -1,4 +1,4 @@
-;;; org-superstar-autoloads.el --- automatically extracted autoloads
+;;; org-superstar-autoloads.el --- automatically extracted autoloads  -*- lexical-binding: t -*-
 ;;
 ;;; Code:
 
@@ -6,9 +6,8 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "org-superstar" "../../../../.emacs.d/elpa/org-superstar-20210915.1934/org-superstar.el"
-;;;;;;  "81c9fb83646017c88f4b46d7790f123e")
-;;; Generated autoloads from ../../../../.emacs.d/elpa/org-superstar-20210915.1934/org-superstar.el
+;;;### (autoloads nil "org-superstar" "org-superstar.el" (0 0 0 0))
+;;; Generated autoloads from org-superstar.el
 
 (put 'org-superstar-leading-bullet 'safe-local-variable #'char-or-string-p)
 
@@ -23,27 +22,23 @@ containing several hundred list items." t nil)
 (autoload 'org-superstar-mode "org-superstar" "\
 Use UTF8 bullets for headlines and plain lists.
 
-If called interactively, enable Org-Superstar mode if ARG is
-positive, and disable it if ARG is zero or negative.  If called
-from Lisp, also enable the mode if ARG is omitted or nil, and
-toggle it if ARG is `toggle'; disable the mode otherwise.
+This is a minor mode.  If called interactively, toggle the
+`Org-Superstar mode' mode.  If the prefix argument is positive,
+enable the mode, and if it is zero or negative, disable the mode.
+
+If called from Lisp, toggle the mode if ARG is `toggle'.  Enable
+the mode if ARG is nil, omitted, or is a positive number.
+Disable the mode if ARG is a negative number.
+
+To check whether the minor mode is enabled in the current buffer,
+evaluate `org-superstar-mode'.
+
+The mode's hook is called both when the mode is enabled and when
+it is disabled.
 
 \(fn &optional ARG)" t nil)
-
-;;;### (autoloads "actual autoloads are elsewhere" "org-superstar"
-;;;;;;  "../../../../.emacs.d/elpa/org-superstar-20210915.1934/org-superstar.el"
-;;;;;;  (0 0 0 0))
-;;; Generated autoloads from ../../../../.emacs.d/elpa/org-superstar-20210915.1934/org-superstar.el
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "org-superstar" '("org-superstar-")))
-
-;;;***
-
-;;;***
-
-;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/org-superstar-20210915.1934/org-superstar-autoloads.el"
-;;;;;;  "../../../../.emacs.d/elpa/org-superstar-20210915.1934/org-superstar.el")
-;;;;;;  (0 0 0 0))
+(register-definition-prefixes "org-superstar" '("org-superstar-"))
 
 ;;;***
 
