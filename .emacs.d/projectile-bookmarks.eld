@@ -1,1 +1,0 @@
-("~/.config/nix/" "~/Projekte/Bachelorarbeit/")
